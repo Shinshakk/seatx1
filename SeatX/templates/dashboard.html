@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeatX - Upload Spreadsheets</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.95; /* Adjust transparency */
+            filter: brightness(90%)        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.5); /* White with slight transparency */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #0b6ea7;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input[type="file"],
+        input[type="datetime-local"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #0b6ea7;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background-color: #09567d;
+        }
+
+        .generate-btn {
+            background-color: #e28743;
+        }
+
+        .generate-btn:hover {
+            background-color: #c67134;
+        }
+
+        .notification-btn {
+            background-color: #dc3545;
+        }
+
+        .notification-btn:hover {
+            background-color: #b02a37;
+        }
+
+        .notification-container {
+            margin-top: 20px;
+        }
+
+        .logo-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        .logo-container img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay loop muted>
+        <source src="{{ url_for('static', filename='videos/colorbg.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="SeatX Logo">
+    </div>
+
+    <div class="container">
+        <h1>Student Seating</h1>
+        <p>Upload your spreadsheets to begin seating arrangement generation.</p>
+
+        <form action="/upload" method="POST" enctype="multipart/form-data" class="form">
+            <label for="classrooms">Classrooms Spreadsheet:</label>
+            <input type="file" name="classrooms" id="classrooms" required>
+
+            <label for="students">Students Spreadsheet:</label>
+            <input type="file" name="students" id="students" required>
+
+            <label for="exam_time">Examination Time:</label>
+            <input type="datetime-local" name="exam_time" id="exam_time" required>
+
+            <button type="submit" class="btn">Upload</button>
+        </form>
+
+        <form action="/generate_seating" method="POST">
+            <button type="submit" class="btn generate-btn">Generate Seating</button>
+        </form>
+    </div>
+
+    <div class="notification-container">
+        <form action="/emergency.html" method="GET">
+            <button type="submit" class="btn notification-btn">Emergency Notification</button>
+        </form>
+    </div>
+</body>
+</html>

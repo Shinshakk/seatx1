@@ -1,0 +1,130 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+    color: #333;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Headings */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #4a90e2;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+/* Forms */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: #4a90e2;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #357ab8;
+}
+
+/* Tables */
+.seating-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.seating-table th,
+.seating-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.seating-table th {
+    background: #f4f4f9;
+    color: #333;
+    font-weight: bold;
+}
+
+.seating-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Action Buttons */
+.actions {
+    margin-top: 20px;
+}
+
+.actions a,
+.actions button {
+    margin: 10px;
+}
+
+/* Logo container styles */
+.logo-container {
+    position: fixed;
+    top: 20px; /* Final position */
+    left: 20px; /* Final position */
+    z-index: 10;
+    transition: all 0.8s ease; /* Smooth animation */
+}
+
+/* Starting position for main_page.html */
+.logo-container.start-position {
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) scale(1.5); /* Enlarged */
+}
+
+/* Shrinking effect on logo */
+.logo-container img {
+    width: 150px; /* Final size */
+    height: auto;
+    transition: all 0.8s ease; /* Smooth resizing */
+}
+
+.logo-container.start-position img {
+    width: 250px; /* Starting size in main_page.html */
+}
+

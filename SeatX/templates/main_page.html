@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeatX</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header button {
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        /* Logo container styles */
+        .logo-container {
+            position: fixed;
+            top: 20px; /* Final position */
+            left: 20px; /* Final position */
+            z-index: 10;
+            transition: all 0.8s ease; /* Smooth transition effect */
+        }
+
+        /* Starting position */
+        .logo-container.start-position {
+            top: 40%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%) scale(1.5); /* Enlarged */
+        }
+
+        /* Logo shrinking effect */
+        .logo-container img {
+            width: 100px; /* Final size */
+            height: auto;
+            transition: all 0.5s ease; /* Smooth resizing */
+        }
+
+        .logo-container.start-position img {
+            width: 150px; /* Starting size in main_page.html */
+        }
+
+        .header button:first-child {
+            background-color: #0b6ea7;
+        }
+
+        .header button:first-child:hover {
+            background-color: #09567d;
+        }
+
+        .header button:last-child {
+            background-color: #e28743;
+        }
+
+        .header button:last-child:hover {
+            background-color: #c67134;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #ddd;
+           
+        }
+
+        .creators {
+            font-size: 0.8rem;
+            color: #bbb;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="{{ url_for('static', filename='videos/bg.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="header">
+        <button onclick="handleTransition('{{ url_for('sign_up') }}')">Sign Up</button>
+        <button onclick="handleTransition('{{ url_for('login') }}')">Log In</button>
+    </div>
+
+    <div class="logo-container start-position">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="SeatX Logo">
+    </div>
+
+    <div class="container">
+        <p>Your one-stop solution for efficient seating plans and notifications</p>
+            </div>
+
+    <script>
+        function handleTransition(destination) {
+            const logoContainer = document.querySelector('.logo-container');
+
+            // Trigger the transition
+            logoContainer.classList.remove('start-position');
+
+            // Delay navigation to allow the transition to complete
+            setTimeout(() => {
+                window.location.href = destination; // Navigate to the target page
+            }, 800); // Match the duration of the CSS transition
+        }
+    </script>
+</body>
+</html>

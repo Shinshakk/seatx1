@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeatX - Seating Plan</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .output-container {
+            flex: 3;
+            margin-right: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .output-container h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #0b6ea7;
+            text-align: center;
+        }
+
+        .seating-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .seating-table th, .seating-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .seating-table th {
+            background-color: #0b6ea7;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .seating-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .actions-container {
+            flex: 1;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .actions-container .btn {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #0b6ea7;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .actions-container .btn:hover {
+            background-color: #09567d;
+        }
+
+        .actions-container .btn:last-child {
+            background-color: #e28743;
+        }
+
+        .actions-container .btn:last-child:hover {
+            background-color: #c67134;
+        }
+
+        .logo-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        .logo-container img {
+            width: 100px;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="SeatX Logo">
+    </div>
+    <div class="output-container">
+        <h1>Seating Plan</h1>
+        <table class="seating-table">
+            <thead>
+                <tr>
+                    <th>Roll Number</th>
+                    <th>Name</th>
+                    <th>Classroom</th>
+                    <th>Seat</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if seating %}
+                    {% for seat in seating %}
+                    <tr>
+                        <td>{{ seat.roll_number }}</td>
+                        <td>{{ seat.name }}</td>
+                        <td>{{ seat.classroom }}</td>
+                        <td>{{ seat.seat }}</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4">No seating plan available</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="actions-container">
+        <a href="{{ url_for('download') }}" class="btn">Download as Spreadsheet</a>
+        <form action="/send_notifications" method="POST">
+            <button type="submit" class="btn">Send Notification to Students</button>
+        </form>
+    </div>
+</body>
+</html>

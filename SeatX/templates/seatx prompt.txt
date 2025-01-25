@@ -1,0 +1,23 @@
+from our previous discussion about SeatX generate a fully functional backend and frontend.
+working of webpage and additional information are as follows:
+interface is modern, arranged and aesthetically pleasing.
+2 pages, index.html and seating_plan.html both are inside SeatX_Project\templates
+backend application namely app.py inside SeatX_Project folder
+option to upload 2 spread sheets, classrooms.xlsx and students.xlsx respectively and an upload button which converts the spreadsheet to database and store inside it.
+a button namely "Generate Seating" which use this data from database and by applying the logic and constraints for our seating arrangements to sort the student into various classes, which then stores the data into a new database. this button also redirects to seating_plan.html and shows the seating arrangement which is pasted from the output html. in the same page there must be a button to send notification namely "send notification to students", which i will say its functionality in future. so use a placeholder instead for now. 
+that same page must have option to download the output as a spreadsheet.
+
+Note that: 
+classrooms spreadsheet columns: Classroom, Block, Capacity
+students spreadsheet columns: Roll Number, Name, Class, Department, Semester
+
+seating assignment logic:
+
+Students are sorted based on their class and department to ensure that students from the same semester and department are not seated together.
+
+Step 1: The number of available seats is calculated by adding up the capacities of all classrooms.
+Step 2: The students are seated in a grid-like structure. Each row in the grid represents a seat, with columns marked A, B, C...I.
+Step 3: The seating arrangement is assigned based on the order of students in the dataset (sorted by class and department). This ensures that students from the same department and class sit together if possible, but not next to each other.
+Step 4: The seating assignments are calculated by iterating through the students and assigning them to the columns in each classroom (e.g., column A1, B1, etc.).                                   
+
+in case of any doubt ask it away and also incorporate necessary components on your own which are required for the proper functioning of the web page to avoid error and lack of logic. like if i forgot to explain something use logic and fix it so that i wont have to keep on explaining things. also tell what things should i do from my part like if i should create extra folder or something etc.

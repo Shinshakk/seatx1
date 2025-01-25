@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeatX - Upload Spreadsheets</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to SeatX</h1>
+        <p>Upload your spreadsheets to begin seating arrangement generation.</p>
+
+        <form action="/upload" method="POST" enctype="multipart/form-data" class="form">
+            <label for="classrooms">Classrooms Spreadsheet:</label>
+            <input type="file" name="classrooms" id="classrooms" required>
+
+            <label for="students">Students Spreadsheet:</label>
+            <input type="file" name="students" id="students" required>
+
+            <button type="submit" class="btn">Upload</button>
+        </form>
+
+        <form action="/generate_seating" method="POST">
+            <button type="submit" class="btn generate-btn">Generate Seating</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeatX - Seating Plan</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Seating Plan</h1>
+        <table class="seating-table">
+            <thead>
+                <tr>
+                    <th>Roll Number</th>
+                    <th>Name</th>
+                    <th>Classroom</th>
+                    <th>Seat</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if seating %}
+                    {% for seat in seating %}
+                    <tr>
+                        <td>{{ seat.roll_number }}</td>
+                        <td>{{ seat.name }}</td>
+                        <td>{{ seat.classroom }}</td>
+                        <td>{{ seat.seat }}</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4">No seating plan available</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <div class="actions">
+            <a href="{{ url_for('download') }}" class="btn">Download as Spreadsheet</a>
+            <form action="/send_notifications" method="POST" style="display: inline;">
+                <button type="submit" class="btn">Send Notification to Students</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

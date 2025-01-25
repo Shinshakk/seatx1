@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeatX - Features</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.95;             
+            filter: brightness(85%);
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 70px;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #09567d;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #757575 ;
+        }
+
+        .logo-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            transform: translate(0, 0) scale(1);
+        }
+
+        .logo-container img {
+            width: 100px;
+            height: auto;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        .pricing-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #0b6ea7;
+        }
+
+        .pricing-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #0b6ea7;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #09567d;
+        }
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay loop muted>
+        <source src="{{ url_for('static', filename='videos/colorbg.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="SeatX Logo">
+    </div>
+
+    <div class="header">
+        <h1>Explore the Features of SeatX</h1>
+        <p>Choose an option below to proceed.</p>
+    </div>
+
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <img src="{{ url_for('static', filename='images/students.png') }}" alt="Students Icon">
+            <h2>Student Seating</h2>
+            <p>Efficiently assign students to their respective exam halls without any conflicts or cheating constraints.</p>
+            <a href="/dashboard" class="btn">Proceed Seating</a>
+        </div>
+    </div>
+</body>
+</html>
