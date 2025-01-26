@@ -68,9 +68,9 @@ For Software:
 
 
 ## Team Contributions
-- [Shinsha kk]: [Backend Developer]
-- [Asmath Nitha Kinattingal]: [Frontent Developer]
-- [Salva Rahman]: [Designing]
+- Shinsha kk: Backend Developer
+- Asmath Nitha Kinattingal: Frontent Developer
+- Salva Rahman: Designing
 
 ---
 Made with ❤️ at TinkerHub
