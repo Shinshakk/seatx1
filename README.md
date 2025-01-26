@@ -55,15 +55,15 @@ export EMAIL_PASSWORD=your_email_password; macOS) Initialize the Database(python
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](SeatX/demo/class schedule.jpg)
+! [Screenshot1](https://github.com/Shinshakk/seatx1/blob/main/SeatX/demo/class%20schedule.jpg)
 *This screenshot indicates the outputs in which how the classes are scheduled for students*
 
-![Screenshot2](SeatX/demo/emergency notification.jpg)
+! [Screenshot2](SeatX/demo/emergencynotification.jpg)
 *This indicates the emergency notifications incase if there have any emergency like exam cancelled something*
 
 ### Project Demo
 # Video
-[(SeatX/demo/2025-01-26 04-50-01.mp4)]
+[SeatX/demo/2025-01-26 04-50-01.mp4](https://github.com/Shinshakk/seatx1/blob/main/SeatX/demo/2025-01-26%2004-50-01.mp4)
 *Here shows how our web app run*
 
 
