@@ -11,7 +11,7 @@
 - Member 3: [Salva Rahman] - [Eranad Knoweldge City Technical Campus]
 
 ### Hosted Project Link
-[mention your project hosted project link here]
+https://seatx1.onrender.com
 
 ### Project Description
 [This project introduces a web application designed to streamline the seat allotment process for students, eliminating the need to check physical notice boards. The application includes robust user management, allowing administrators to upload classroom and student data efficiently. It generates seating plans automatically and notifies students of their assigned seats via email. The notification system supports both scheduled updates and real-time emergency alerts, ensuring timely communication. Additional features include a background scheduler for automated tasks, data export capabilities for records, and a user-friendly interface to enhance accessibility and convenience for students and administrators alike.]
